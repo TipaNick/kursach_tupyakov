@@ -24,7 +24,27 @@ namespace kursach_tupyakov
         //Пустой конструктор
         public Test()
         {
-
+            this.power = 0;
+        }
+        public int get_power()
+        {
+            return power;
+        }
+        public int get_count()
+        {
+            return count;
+        }
+        public string[] get_question()
+        {
+            return question;
+        }
+        public int[] get_type()
+        {
+            return type;
+        }
+        public string[] get_answers()
+        {
+            return ans;
         }
     }
 }

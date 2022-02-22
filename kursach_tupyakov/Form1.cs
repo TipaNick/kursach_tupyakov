@@ -13,13 +13,13 @@ namespace kursach_tupyakov
     public partial class Form1 : Form
     {
         public static string[] quest = { "1", "2", "3" };
-        static int[] type = { 0, 0, 0 };
-        static string[] ans = { "1", "2", "3" };
-        public static Test test = new Test(3, quest, type, ans);
+        static int[] type = { 0, 1, 2 };
+        static string[] ans = { "1", "1;2;3;4", "5;6;7;8" };
+        public static Test test = new Test(3, quest, type, ans); //Тестовый опрос
 
-        public static string[] doc = { "Alan", "123" }; //Администратор
-        public static Pateint patient;
-        public static Doctor doctor;
+        public static string[] doc = { "Alan", "123" }; //Администратор для авторизации
+        public static Pateint patient; //Заранее созданный пациент
+        public static Doctor doctor; //Заранее созданный доктор
 
         public Form1()
         {
