@@ -12,6 +12,15 @@ namespace kursach_tupyakov
 {
     public partial class Form1 : Form
     {
+        public static string[] quest = { "1", "2", "3" };
+        static int[] type = { 0, 0, 0 };
+        static string[] ans = { "1", "2", "3" };
+        public static Test test = new Test(3, quest, type, ans);
+
+        public static string[] doc = { "Alan", "123" }; //Администратор
+        public static Pateint patient;
+        public static Doctor doctor;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,8 +30,13 @@ namespace kursach_tupyakov
         {
             patient_log log_form = new patient_log();
             log_form.ShowDialog();
-            test_choice form_ch = new test_choice();
-            form_ch.Show();
+ 
+            patient = new Pateint(log_form.user_name);
+
+            test_choice test_Choice = new test_choice();
+            test_Choice.ShowDialog();
+            //MessageBox.Show(Convert.ToString(test_Choice.choice_test));
+            
         }
     }
 }

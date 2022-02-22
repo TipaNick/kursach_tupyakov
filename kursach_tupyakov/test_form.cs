@@ -8,18 +8,13 @@ using System.Windows.Forms;
 
 namespace kursach_tupyakov
 {
-    public partial class patient_log : Form
+    public partial class test_form : Form
     {
-        public string user_name;
-        public patient_log()
+        public int number_test;
+        public test_form(int num)
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            user_name = textBox1.Text;
-            this.Close();
+            number_test = num;
         }
     }
 }
