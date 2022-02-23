@@ -11,23 +11,21 @@ namespace kursach_tupyakov
     public partial class test_form : Form
     {
         public int number_test;
+        Test temp = new Test();
         public test_form(int num)
         {
             InitializeComponent();
             number_test = num;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
         //Вывод теста на форму
         private void test_form_Load(object sender, EventArgs e)
         {
-            Test temp = new Test();
+           
             temp = Form1.test;
             //string[] question = temp.get_question();
             int x_p = 60, y_p = 25;
+            int txbox = 0, rdbox = 0, chbox = 0;
             for (int i = 0; i < (temp.get_count()); i++)
             {
                 Panel pan = new Panel();
@@ -45,13 +43,16 @@ namespace kursach_tupyakov
                 switch (temp.get_type()[i])
                 {
                     case 0:
-                        create_textbox(pan);
+                        create_textbox(pan, txbox);
+                        txbox++;
                         break;
                     case 1:
-                        create_radio(pan, temp, i);
+                        create_radio(pan, temp, i, rdbox);
+                        rdbox += 4;
                         break;
                     case 2:
-                        create_check(pan, temp, i);
+                        create_check(pan, temp, i, chbox);
+                        chbox += 4;
                         break;
                 }
 
@@ -71,12 +72,71 @@ namespace kursach_tupyakov
             this.Controls.Add(emp);
         }
 
+
+
+        //Сохранить результаты
         private void Bt_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int tb = 0, rb = 0, cb = 0;
+            string glob_answer = Convert.ToString(temp.get_count()) + ";";
+            //MessageBox.Show(this.Controls["panel0"].Controls["textBox1"].Text);
+            for(int i = 0; i < temp.get_count(); i++)
+            {
+                switch (temp.get_type()[i])
+                {
+                    case 0:
+                        glob_answer += "Вопрос " + i + ": " + this.Controls["panel" + i].Controls["textBox" + tb].Text + ";";
+                        tb++;
+                        break;
+                    case 1:
+                        //RadioButton rbb = this.Controls["panel" + i].Controls["radioButton" + rb] as RadioButton;
+                        RadioButton rbb;
+                        if ((rbb = this.Controls["panel" + i].Controls["radioButton" + rb] as RadioButton).Checked)
+                        {
+                            glob_answer = "1";
+                        } 
+                        else if ((rbb = this.Controls["panel" + i].Controls["radioButton" + (rb + 1)] as RadioButton).Checked)
+                        {
+                            glob_answer = "2";
+                        } 
+                        else if ((rbb = this.Controls["panel" + i].Controls["radioButton" + (rb + 2)] as RadioButton).Checked)
+                        {
+                            glob_answer = "3";
+                        } 
+                        else if ((rbb = this.Controls["panel" + i].Controls["radioButton" + (rb + 3)] as RadioButton).Checked)
+                        {
+                            glob_answer = "4";
+                        }
+                        rb += 4;
+                        break;
+                    case 2:
+                        CheckBox chb;
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + rb] as CheckBox).Checked)
+                        {
+                            glob_answer = "1";
+                        }
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (rb + 1)] as CheckBox).Checked)
+                        {
+                            glob_answer = "2";
+                        }
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (rb + 2)] as CheckBox).Checked)
+                        {
+                            glob_answer = "3";
+                        }
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (rb + 3)] as CheckBox).Checked)
+                        {
+                            glob_answer = "4";
+                        }
+                        rb += 4;
+                        break;
+                }
+
+            }
+
+
         }
 
-        private void create_check(Panel pan, Test test, int i)
+        private void create_check(Panel pan, Test test, int i, int chbox)
         {
             string[] answers = test.get_answers()[i].Split(';');
             int x = 50, y = 75;
@@ -85,14 +145,14 @@ namespace kursach_tupyakov
                 CheckBox cb = new CheckBox();
                 cb.Location = new Point(x, y);
                 cb.Text = answers[j];
-
+                cb.Name = "checkBox" + (j + chbox);
                 pan.Controls.Add(cb);
 
                 y += 25;
             }
         }
 
-        private void create_radio(Panel pan, Test test, int i)
+        private void create_radio(Panel pan, Test test, int i, int rdbox)
         {
             string[] answers = test.get_answers()[i].Split(';');
             int x = 50, y = 75;
@@ -101,19 +161,21 @@ namespace kursach_tupyakov
                 RadioButton rb = new RadioButton();
                 rb.Location = new Point(x, y);
                 rb.Text = answers[j];
-
+                rb.Name = "radioButton" + (j + rdbox);
                 pan.Controls.Add(rb);
 
                 y += 25;
             }
         }
 
-        private void create_textbox(Panel pan)
+        private void create_textbox(Panel pan, int txbox)
         {
             TextBox tb = new TextBox();
             tb.Location = new Point(50, 75);
             tb.Size = new Size(300, 23);
+            tb.Name = "textBox" + txbox;
             pan.Controls.Add(tb);
         }
+
     }
 }

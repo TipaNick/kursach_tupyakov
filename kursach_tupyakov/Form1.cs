@@ -30,10 +30,8 @@ namespace kursach_tupyakov
         {
             patient_log log_form = new patient_log();
             log_form.ShowDialog();
- 
-            patient = new Pateint(log_form.user_name);
-
-            test_choice test_Choice = new test_choice();
+            patient = new Pateint(log_form.user_name); //Получаем имя из формы
+            test_choice test_Choice = new test_choice(); //Форма вызова выбора теста
             test_Choice.ShowDialog();
             //MessageBox.Show(Convert.ToString(test_Choice.choice_test));
             
