@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace kursach_tupyakov
 {
@@ -79,10 +80,11 @@ namespace kursach_tupyakov
         private void Bt_Click(object sender, EventArgs e)
         {
             int tb = 0, rb = 0, cb = 0;
-            string glob_answer = Convert.ToString(temp.get_count()) + ";";
+            string glob_answer = Convert.ToString(number_test) + ";" + Convert.ToString(temp.get_count()) + ";"; //Запишем номер и кол-во вопросов
             //MessageBox.Show(this.Controls["panel0"].Controls["textBox1"].Text);
             for(int i = 0; i < temp.get_count(); i++)
             {
+                //Записываем результаты
                 switch (temp.get_type()[i])
                 {
                     case 0:
@@ -91,6 +93,7 @@ namespace kursach_tupyakov
                         break;
                     case 1:
                         RadioButton rbb;
+                        //Проверка на выбранный пункт
                         if ((rbb = this.Controls["panel" + i].Controls["radioButton" + rb] as RadioButton).Checked)
                         {
                             glob_answer += rbb.Text + ";";
@@ -111,6 +114,7 @@ namespace kursach_tupyakov
                         break;
                     case 2:
                         CheckBox chb;
+                        //Добавление всех выбранных пунктов
                         if ((chb = this.Controls["panel" + i].Controls["checkBox" + cb] as CheckBox).Checked)
                         {
                             glob_answer += "1-";
@@ -127,16 +131,24 @@ namespace kursach_tupyakov
                         {
                             glob_answer += "4-";
                         }
+                        //Разделитель для файла
                         glob_answer += ";";
                         cb += 4;
                         break;
                 }
 
             }
-            MessageBox.Show(glob_answer);
-
+            //MessageBox.Show(glob_answer);
+            glob_answer += Form1.patient.get_name();
+            string path = "result.txt";
+            using(StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(glob_answer);
+            }
+            MessageBox.Show("Результаты записаны");
+            this.Close();
         }
-
+        //Функция создания checkBox
         private void create_check(Panel pan, Test test, int i, int chbox)
         {
             string[] answers = test.get_answers()[i].Split(';');
@@ -153,7 +165,7 @@ namespace kursach_tupyakov
                 y += 25;
             }
         }
-
+        //Функция создания radioButton
         private void create_radio(Panel pan, Test test, int i, int rdbox)
         {
             string[] answers = test.get_answers()[i].Split(';');
@@ -170,7 +182,7 @@ namespace kursach_tupyakov
                 y += 25;
             }
         }
-
+        //Функция создания textBox
         private void create_textbox(Panel pan, int txbox)
         {
             TextBox tb = new TextBox();

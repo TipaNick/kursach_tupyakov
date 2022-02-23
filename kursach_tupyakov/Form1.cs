@@ -46,5 +46,12 @@ namespace kursach_tupyakov
             //MessageBox.Show(Convert.ToString(test_Choice.choice_test));
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            doctor_log doc_log = new doctor_log();
+            doc_log.ShowDialog();
+            doctor = new Doctor(doc_log.user_name);
+        }
     }
 }

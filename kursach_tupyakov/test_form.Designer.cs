@@ -37,9 +37,11 @@ namespace kursach_tupyakov
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(527, 527);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "test_form";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "test_form";
+            this.Text = "Тест";
             this.Load += new System.EventHandler(this.test_form_Load);
             this.ResumeLayout(false);
 

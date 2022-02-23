@@ -35,10 +35,10 @@ namespace kursach_tupyakov
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(103, 45);
+            this.button1.Location = new System.Drawing.Point(100, 50);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 52);
+            this.button1.Size = new System.Drawing.Size(140, 50);
             this.button1.TabIndex = 0;
             this.button1.Text = "Пациент";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,13 +46,14 @@ namespace kursach_tupyakov
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(103, 148);
+            this.button2.Location = new System.Drawing.Point(100, 150);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 52);
+            this.button2.Size = new System.Drawing.Size(140, 50);
             this.button2.TabIndex = 1;
             this.button2.Text = "Доктор";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -61,10 +62,12 @@ namespace kursach_tupyakov
             this.ClientSize = new System.Drawing.Size(334, 265);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Программа \"Опрос\"";
             this.ResumeLayout(false);
 
         }

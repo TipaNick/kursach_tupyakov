@@ -38,9 +38,9 @@ namespace kursach_tupyakov
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(86, 27);
+            this.button1.Location = new System.Drawing.Point(90, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 42);
+            this.button1.Size = new System.Drawing.Size(150, 40);
             this.button1.TabIndex = 0;
             this.button1.Text = "Тест №1";
             this.button1.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@ namespace kursach_tupyakov
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(86, 91);
+            this.button2.Location = new System.Drawing.Point(90, 90);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 42);
+            this.button2.Size = new System.Drawing.Size(150, 40);
             this.button2.TabIndex = 1;
             this.button2.Text = "Тест №2";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@ namespace kursach_tupyakov
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(86, 159);
+            this.button3.Location = new System.Drawing.Point(90, 150);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 42);
+            this.button3.Size = new System.Drawing.Size(150, 40);
             this.button3.TabIndex = 3;
             this.button3.Text = "Тест №3";
             this.button3.UseVisualStyleBackColor = true;
@@ -68,9 +68,9 @@ namespace kursach_tupyakov
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(86, 216);
+            this.button4.Location = new System.Drawing.Point(90, 210);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 42);
+            this.button4.Size = new System.Drawing.Size(150, 40);
             this.button4.TabIndex = 2;
             this.button4.Text = "Тест №4";
             this.button4.UseVisualStyleBackColor = true;
@@ -78,9 +78,9 @@ namespace kursach_tupyakov
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(86, 279);
+            this.button5.Location = new System.Drawing.Point(90, 270);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(158, 42);
+            this.button5.Size = new System.Drawing.Size(150, 40);
             this.button5.TabIndex = 4;
             this.button5.Text = "Тест №5";
             this.button5.UseVisualStyleBackColor = true;
@@ -90,16 +90,18 @@ namespace kursach_tupyakov
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 358);
+            this.ClientSize = new System.Drawing.Size(334, 341);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "test_choice";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "test_choice";
+            this.Text = "Выбор теста";
             this.Load += new System.EventHandler(this.test_choice_Load);
             this.ResumeLayout(false);
 

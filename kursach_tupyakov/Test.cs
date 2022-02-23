@@ -21,6 +21,7 @@ namespace kursach_tupyakov
             this.type = type;
             this.ans = ans;
         }
+
         //Пустой конструктор
         public Test()
         {

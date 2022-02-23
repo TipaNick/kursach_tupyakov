@@ -18,8 +18,15 @@ namespace kursach_tupyakov
 
         private void button1_Click(object sender, EventArgs e)
         {
-            user_name = textBox1.Text;
-            this.Close();
+            if(textBox1.Text != String.Empty)
+            {
+                user_name = textBox1.Text;
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Введите имя!");
+            }
+            
         }
     }
 }

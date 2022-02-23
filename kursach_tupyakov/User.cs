@@ -6,8 +6,11 @@ namespace kursach_tupyakov
 {
     public class User
     {
-        public string name;
-
+        protected string name;
+        public string get_name()
+        {
+            return name;
+        }
     }
     public class Pateint : User
     { 
