@@ -100,6 +100,7 @@ namespace kursach_tupyakov
             this.Name = "test_choice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "test_choice";
+            this.Load += new System.EventHandler(this.test_choice_Load);
             this.ResumeLayout(false);
 
         }

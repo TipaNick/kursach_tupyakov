@@ -12,10 +12,12 @@ namespace kursach_tupyakov
 {
     public partial class Form1 : Form
     {
-        public static string[] quest = { "1", "2", "3" };
+        public static string[] quest = { "Введите ваше имя:", "Как вы себя чувствуете?", "Что вы испытываете в данный момент?" };
         static int[] type = { 0, 1, 2 };
-        static string[] ans = { "1", "1;2;3;4", "5;6;7;8" };
-        public static Test test = new Test(3, quest, type, ans); //Тестовый опрос
+        static string[] ans = { "1", "Отлично;Хорошо;Удовлетворительно;Плохо", "Депрессия;Стресс;Боль;Головокружение" };
+        public static Test[] test = new Test[5];
+
+        /*public static Test test = new Test(3, quest, type, ans);*/ //Тестовый опрос
 
         public static string[] doc = { "Alan", "123" }; //Администратор для авторизации
         public static Pateint patient; //Заранее созданный пациент
@@ -24,6 +26,14 @@ namespace kursach_tupyakov
         public Form1()
         {
             InitializeComponent();
+            //Инициализируем тесты
+            for(int i = 0; i < 5; i++)
+            {
+                test[i] = new Test();
+            }
+            //Делаем вручную тест
+            test[0] = new Test(3, quest, type, ans);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

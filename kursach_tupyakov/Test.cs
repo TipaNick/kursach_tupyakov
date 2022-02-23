@@ -26,6 +26,14 @@ namespace kursach_tupyakov
         {
             this.power = 0;
         }
+        public void make_test(int count, string[] question, int[] type, string[] ans)
+        {
+            this.power = 1;
+            this.count = count;
+            this.question = question;
+            this.type = type;
+            this.ans = ans;
+        }
         public int get_power()
         {
             return power;

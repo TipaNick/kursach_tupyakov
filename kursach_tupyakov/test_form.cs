@@ -22,7 +22,7 @@ namespace kursach_tupyakov
         private void test_form_Load(object sender, EventArgs e)
         {
            
-            temp = Form1.test;
+            temp = Form1.test[number_test];
             //string[] question = temp.get_question();
             int x_p = 60, y_p = 25;
             int txbox = 0, rdbox = 0, chbox = 0;
@@ -38,6 +38,7 @@ namespace kursach_tupyakov
                 Label lb = new Label();
                 lb.Location = new Point(50, 40);
                 lb.Text = temp.get_question()[i];
+                lb.AutoSize = true;
                 pan.Controls.Add(lb);
 
                 switch (temp.get_type()[i])
@@ -85,54 +86,54 @@ namespace kursach_tupyakov
                 switch (temp.get_type()[i])
                 {
                     case 0:
-                        glob_answer += "Вопрос " + i + ": " + this.Controls["panel" + i].Controls["textBox" + tb].Text + ";";
+                        glob_answer += this.Controls["panel" + i].Controls["textBox" + tb].Text + ";";
                         tb++;
                         break;
                     case 1:
-                        //RadioButton rbb = this.Controls["panel" + i].Controls["radioButton" + rb] as RadioButton;
                         RadioButton rbb;
                         if ((rbb = this.Controls["panel" + i].Controls["radioButton" + rb] as RadioButton).Checked)
                         {
-                            glob_answer = "1";
+                            glob_answer += rbb.Text + ";";
                         } 
                         else if ((rbb = this.Controls["panel" + i].Controls["radioButton" + (rb + 1)] as RadioButton).Checked)
                         {
-                            glob_answer = "2";
+                            glob_answer += rbb.Text + ";";
                         } 
                         else if ((rbb = this.Controls["panel" + i].Controls["radioButton" + (rb + 2)] as RadioButton).Checked)
                         {
-                            glob_answer = "3";
+                            glob_answer += rbb.Text + ";";
                         } 
                         else if ((rbb = this.Controls["panel" + i].Controls["radioButton" + (rb + 3)] as RadioButton).Checked)
                         {
-                            glob_answer = "4";
+                            glob_answer += rbb.Text + ";";
                         }
                         rb += 4;
                         break;
                     case 2:
                         CheckBox chb;
-                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + rb] as CheckBox).Checked)
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + cb] as CheckBox).Checked)
                         {
-                            glob_answer = "1";
+                            glob_answer += "1-";
                         }
-                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (rb + 1)] as CheckBox).Checked)
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (cb + 1)] as CheckBox).Checked)
                         {
-                            glob_answer = "2";
+                            glob_answer += "2-";
                         }
-                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (rb + 2)] as CheckBox).Checked)
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (cb + 2)] as CheckBox).Checked)
                         {
-                            glob_answer = "3";
+                            glob_answer += "3-";
                         }
-                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (rb + 3)] as CheckBox).Checked)
+                        if ((chb = this.Controls["panel" + i].Controls["checkBox" + (cb + 3)] as CheckBox).Checked)
                         {
-                            glob_answer = "4";
+                            glob_answer += "4-";
                         }
-                        rb += 4;
+                        glob_answer += ";";
+                        cb += 4;
                         break;
                 }
 
             }
-
+            MessageBox.Show(glob_answer);
 
         }
 
@@ -143,6 +144,7 @@ namespace kursach_tupyakov
             for (int j = 0; j < 4; j++)
             {
                 CheckBox cb = new CheckBox();
+                cb.AutoSize = true;
                 cb.Location = new Point(x, y);
                 cb.Text = answers[j];
                 cb.Name = "checkBox" + (j + chbox);
@@ -159,6 +161,7 @@ namespace kursach_tupyakov
             for(int j = 0; j < 4; j++)
             {
                 RadioButton rb = new RadioButton();
+                rb.AutoSize = true;
                 rb.Location = new Point(x, y);
                 rb.Text = answers[j];
                 rb.Name = "radioButton" + (j + rdbox);
