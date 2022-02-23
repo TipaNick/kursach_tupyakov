@@ -14,7 +14,7 @@ namespace kursach_tupyakov
     {
         public static string[] quest = { "Введите ваше имя:", "Как вы себя чувствуете?", "Что вы испытываете в данный момент?" };
         static int[] type = { 0, 1, 2 };
-        static string[] ans = { "1", "Отлично;Хорошо;Удовлетворительно;Плохо", "Депрессия;Стресс;Боль;Головокружение" };
+        static string[] ans = { "", "Отлично;Хорошо;Удовлетворительно;Плохо", "Депрессия;Стресс;Боль;Головокружение" };
         public static Test[] test = new Test[5];
 
         /*public static Test test = new Test(3, quest, type, ans);*/ //Тестовый опрос
@@ -52,6 +52,9 @@ namespace kursach_tupyakov
             doctor_log doc_log = new doctor_log();
             doc_log.ShowDialog();
             doctor = new Doctor(doc_log.user_name);
+            admin_panel admin_Panel = new admin_panel();
+            admin_Panel.ShowDialog();
+
         }
     }
 }

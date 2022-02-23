@@ -27,6 +27,10 @@ namespace kursach_tupyakov
         {
             this.power = 0;
         }
+        public void set_power(int check)
+        {
+            this.power = check;
+        }
         public void make_test(int count, string[] question, int[] type, string[] ans)
         {
             this.power = 1;

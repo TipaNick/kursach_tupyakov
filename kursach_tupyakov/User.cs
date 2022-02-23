@@ -33,12 +33,14 @@ namespace kursach_tupyakov
         }
         public void create_test()
         {
-
+            create_test crtest = new create_test();
+            crtest.ShowDialog();
         }
         
         public void del_test()
         {
-            
+            del_test deltest = new del_test();
+            deltest.ShowDialog();
         }
     }
 }

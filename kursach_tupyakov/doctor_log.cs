@@ -20,7 +20,7 @@ namespace kursach_tupyakov
         {
             if (textBox1.Text != String.Empty && textBox1.Text == Form1.doc[0])
             {
-                if (textBox2.Text == String.Empty || textBox1.Text == Form1.doc[1])
+                if (textBox2.Text != String.Empty && textBox2.Text == Form1.doc[1])
                 {
                     user_name = textBox1.Text;
                     this.Close();
