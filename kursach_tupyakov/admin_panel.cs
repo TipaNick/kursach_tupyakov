@@ -24,5 +24,10 @@ namespace kursach_tupyakov
         {
             Form1.doctor.del_test();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1.doctor.check_result();
+        }
     }
 }

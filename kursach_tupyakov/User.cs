@@ -42,5 +42,11 @@ namespace kursach_tupyakov
             del_test deltest = new del_test();
             deltest.ShowDialog();
         }
+
+        public void check_result()
+        {
+            check_result check_Result = new check_result();
+            check_Result.ShowDialog();
+        }
     }
 }

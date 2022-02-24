@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace kursach_tupyakov
 {
@@ -55,6 +56,11 @@ namespace kursach_tupyakov
             admin_panel admin_Panel = new admin_panel();
             admin_Panel.ShowDialog();
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            File.Delete("result.txt");
         }
     }
 }

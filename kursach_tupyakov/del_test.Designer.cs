@@ -75,9 +75,11 @@ namespace kursach_tupyakov
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "del_test";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "del_test";
+            this.Text = "Удалить опрос";
             this.Load += new System.EventHandler(this.del_test_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

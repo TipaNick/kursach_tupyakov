@@ -41,7 +41,7 @@ namespace kursach_tupyakov
             this.Name = "test_form";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Тест";
+            this.Text = "Опрос";
             this.Load += new System.EventHandler(this.test_form_Load);
             this.ResumeLayout(false);
 

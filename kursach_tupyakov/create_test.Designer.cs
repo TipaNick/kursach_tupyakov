@@ -56,9 +56,9 @@ namespace kursach_tupyakov
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(141, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 15);
+            this.label1.Size = new System.Drawing.Size(170, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Выберите ячейку для теста:";
+            this.label1.Text = "Выберите ячейку для опроса:";
             // 
             // comboBox2
             // 
@@ -85,9 +85,9 @@ namespace kursach_tupyakov
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(126, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 15);
+            this.label2.Size = new System.Drawing.Size(200, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Сколько вопросов будет в тесте?";
+            this.label2.Text = "Сколько вопросов будет в опросе?";
             // 
             // button1
             // 
@@ -109,9 +109,11 @@ namespace kursach_tupyakov
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "create_test";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "create_test";
+            this.Text = "Создать опрос";
             this.Load += new System.EventHandler(this.create_test_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

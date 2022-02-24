@@ -56,7 +56,7 @@ namespace kursach_tupyakov
             this.Controls.Clear();
             Label name = new Label();
             name.AutoSize = true;
-            name.Text = "Введите вопрос:";
+            name.Text = "Введите вопрос " + (count + 1) +":";
             name.Location = new Point(66, 15);
             this.Controls.Add(name);
 
@@ -73,6 +73,7 @@ namespace kursach_tupyakov
             this.Controls.Add(type);
 
             ComboBox type_choise = new ComboBox();
+            type_choise.Size = new Size(140, 23);
             type_choise.Name = "choise";
             type_choise.DropDownStyle = ComboBoxStyle.DropDownList;
             type_choise.Items.Add("Поле ввода");

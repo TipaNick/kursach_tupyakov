@@ -80,7 +80,8 @@ namespace kursach_tupyakov
         private void Bt_Click(object sender, EventArgs e)
         {
             int tb = 0, rb = 0, cb = 0;
-            string glob_answer = Convert.ToString(number_test) + ";" + Convert.ToString(temp.get_count()) + ";"; //Запишем номер и кол-во вопросов
+            //glob_answer += Form1.patient.get_name();
+            string glob_answer = Convert.ToString(number_test) + ";" + Form1.patient.get_name() + ";" + Convert.ToString(temp.get_count()) + ";"; //Запишем номер и кол-во вопросов
             //MessageBox.Show(this.Controls["panel0"].Controls["textBox1"].Text);
             for(int i = 0; i < temp.get_count(); i++)
             {
@@ -117,21 +118,22 @@ namespace kursach_tupyakov
                         //Добавление всех выбранных пунктов
                         if ((chb = this.Controls["panel" + i].Controls["checkBox" + cb] as CheckBox).Checked)
                         {
-                            glob_answer += "1-";
+                            glob_answer += chb.Text + ",";
                         }
                         if ((chb = this.Controls["panel" + i].Controls["checkBox" + (cb + 1)] as CheckBox).Checked)
                         {
-                            glob_answer += "2-";
+                            glob_answer += chb.Text + ",";
                         }
                         if ((chb = this.Controls["panel" + i].Controls["checkBox" + (cb + 2)] as CheckBox).Checked)
                         {
-                            glob_answer += "3-";
+                            glob_answer += chb.Text + ",";
                         }
                         if ((chb = this.Controls["panel" + i].Controls["checkBox" + (cb + 3)] as CheckBox).Checked)
                         {
-                            glob_answer += "4-";
+                            glob_answer += chb.Text + ",";
                         }
                         //Разделитель для файла
+                        glob_answer = glob_answer.Remove(glob_answer.Length - 1, 1);
                         glob_answer += ";";
                         cb += 4;
                         break;
@@ -139,7 +141,7 @@ namespace kursach_tupyakov
 
             }
             //MessageBox.Show(glob_answer);
-            glob_answer += Form1.patient.get_name();
+            
             string path = "result.txt";
             using(StreamWriter writer = new StreamWriter(path, true))
             {
